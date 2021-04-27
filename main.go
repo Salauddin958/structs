@@ -22,6 +22,24 @@ func main() {
 	mySlice := []string{"hello", "world"}
 	updateSlice(mySlice)
 	fmt.Println(mySlice)
+	var color1 map[string]string
+	fmt.Println(color1)
+	colors2 := make(map[string]string)
+	fmt.Println(colors2)
+	colors := map[string]string{
+		"red":   "#ff0000",
+		"green": "#4bf745",
+		"white": "#ffffff",
+	}
+	fmt.Println(colors)
+	delete(colors, "red")
+	printMap(colors)
+}
+
+func printMap(m map[string]string) {
+	for key, value := range m {
+		fmt.Println(key, value)
+	}
 }
 
 func updateSlice(s []string) {
