@@ -34,6 +34,15 @@ func main() {
 	fmt.Println(colors)
 	delete(colors, "red")
 	printMap(colors)
+
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		if i == 0 || i == 1 {
+			fmt.Println(i)
+		} else {
+			fmt.Println(f())
+		}
+	}
 }
 
 func printMap(m map[string]string) {
@@ -52,4 +61,18 @@ func (p person) print() {
 
 func (p *person) updateName(newFirstName string) {
 	p.firstName = newFirstName
+}
+
+// function closure
+// print fibonnaci
+
+func fibonacci() func() int {
+	a := 0
+	b := 1
+	return func() int {
+		c := a + b
+		a = b
+		b = c
+		return c
+	}
 }
