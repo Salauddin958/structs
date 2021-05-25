@@ -14,14 +14,33 @@ type person struct {
 }
 
 func main() {
+	structsUseCase()
+	sliceUseCase()
+	mapsUseCase()
+	closureUseCase()
+}
+func closureUseCase() {
+	f := fibonacci()
+	for i := 0; i < 10; i++ {
+		if i == 0 || i == 1 {
+			fmt.Println(i)
+		} else {
+			fmt.Println(f())
+		}
+	}
+}
+func structsUseCase() {
 	contact := contactInfo{email: "jim@jimmy.com", zipCode: 190339}
 	jim := person{firstName: "jim", lastName: "carry", contact: contact}
 	jim.updateName("jimCarry")
 	jim.print()
-
+}
+func sliceUseCase() {
 	mySlice := []string{"hello", "world"}
 	updateSlice(mySlice)
 	fmt.Println(mySlice)
+}
+func mapsUseCase() {
 	var color1 map[string]string
 	fmt.Println(color1)
 	colors2 := make(map[string]string)
@@ -34,15 +53,6 @@ func main() {
 	fmt.Println(colors)
 	delete(colors, "red")
 	printMap(colors)
-
-	f := fibonacci()
-	for i := 0; i < 10; i++ {
-		if i == 0 || i == 1 {
-			fmt.Println(i)
-		} else {
-			fmt.Println(f())
-		}
-	}
 }
 
 func printMap(m map[string]string) {
